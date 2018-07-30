@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+<style>html, body { height: 100% } .buttons{border-radius:8px;background-color:transparent;border-color:gray;border-width:3px;} body{background-image: url("https://wallpapercave.com/wp/NBtX9AD.jpg");
+  background-size: cover;background-repeat:no-repeat;background-attachment: fixed;}</style>
+<head>
+<title>splix.io</title>
+<link rel="icon" href="http://splix.io/img/favicon-196x196.png">
+</head>
+
+<body>
+
+<center><button class="buttons" onclick="titleChangeOne()"><h2>Google Tab Name</h2></button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button class="buttons" onclick="titleChangeTwo()"><h2>Splix.io Tab Name</h2></button></center>
+
+
+<a id="panicPage"></a>
+
+
+<iframe id="iframeGoogleClassroom" src="https://www.silvergames.com/en/splixio/iframe" width="100%" height="100%" style="margin:0;padding:0;border:0"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function pushGoogle() {
+
+    var x = document.getElementById("iframeGoogleClassroom");
+    if (x.style.display === "none") {
+        x.stop;
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+
+</body>
+<script>
+function titleChangeOne() {
+document.title = "Google";
+    var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = 'https://www.google.com/images/branding/product/ico/googleg_lodp.ico';
+    document.getElementsByTagName('head')[0].appendChild(link);
+}
+
+function titleChangeTwo() {
+document.title = "splix.io";
+    var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = 'http://splix.io/img/favicon-196x196.png';
+    document.getElementsByTagName('head')[0].appendChild(link);
+}
+</script>
+
+<html>
