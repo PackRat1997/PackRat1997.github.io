@@ -7,6 +7,12 @@ body {
 	font-family: 'Gloria Hallelujah', cursive;
 	text-align: center;
 	color: white;
+
+}
+body, html{
+	
+	height: 100%;
+		
 }
 h1 {
 	font-family: 'Gloria Hallelujah', cursive;

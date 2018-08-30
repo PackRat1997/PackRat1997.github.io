@@ -11,16 +11,20 @@
 			<a href="Games.html">Games</a>
 			<a href="Songs.html">Country Playlist</a>
 			<a class="active">About</a>
+			<a href="../DailyWork">Daily Work</a>
 		</div>
 		
 	</head>
 	
 	<body>
-		
+				<label id="togS" class="switch">
+			<input type="checkbox" id="toggle" onclick="toggle()">
+			<span class="slider round"></span>
+		</label>
 		<h1>About this site</h1>
 		<br>
-		<p>This site was created by Ryan, is maintained by Ryan, and is usually only viewed by Ryan. This site is under serious construction and more stuff will be added later. Any suggestions and comments, please send an email to: ryan04cr@gmail.com</p>
+		<p>This site is made by Ryan and is for mostly the use of Ryan.</p>
 		
 	</body>
-	
+	<script>function toggle() {var checkBox = document.getElementById("toggle");var text = document.getElementById("text");if(checkBox.checked == true){document.title="Google";document.querySelector("link[rel='shortcut icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";document.querySelector("link[rel*='icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";}else{document.title="About";document.querySelector("link[rel='shortcut icon']").href="https://upload.wikimedia.org/wikipedia/commons/2/2e/Processing_3_logo.png";document.querySelector("link[rel*='icon']").href = "https://upload.wikimedia.org/wikipedia/commons/2/2e/Processing_3_logo.png";}}</script>
 </html>
