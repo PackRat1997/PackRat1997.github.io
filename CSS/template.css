@@ -2,37 +2,34 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
 body {
-	background-image: url("https://newevolutiondesigns.com/images/freebies/black-wallpaper-10.jpg");
+	background-image: url("../assets/background_home.jpg");
+
 	background-size: cover;
 	font-family: 'Gloria Hallelujah', cursive;
 	text-align: center;
-	color: white;
+	color: darkslategrey;
 
 }
-body, html{
-	
-	height: 100%;
-		
-}
+
 h1 {
 	font-family: 'Gloria Hallelujah', cursive;
 	font-size: 300%;
 	text-align: center;
-	color: white;
+	color: darkslategrey;
 }
 
 p {
 	font-family: 'Gloria Hallelujah', cursive;
 	font-size: 200%;
 	text-align: center;
-	color: white;
+	color: darkslategrey;
 }
 .next-button {
 	font-family: 'Gloria Hallelujah', cursive;
 	border-radius: 4px;
 	border-color: white;
 	color: white;
-	font-size: 125%;  
+	font-size: 125%;
 	width: 10%;
 	background-color: transparent;
 	position: default;
@@ -54,11 +51,18 @@ p {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: tan;
   -webkit-transition: .4s;
   transition: .4s;
 }
-
+br {
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
 .slider:before {
   position: absolute;
   content: "";
@@ -72,7 +76,7 @@ p {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: brown;
 }
 
 input:focus + .slider {
@@ -115,9 +119,9 @@ input:checked + .slider:before {
 }
 .topnav a.active {
     background-color: #4CAF50;
-    color: white;
+    color: darkslategrey;
 }
 a {
-	color: white;
+	color: darkslategrey;
 	font-style: none;
 }
