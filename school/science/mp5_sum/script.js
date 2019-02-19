@@ -29,7 +29,8 @@ function next() {
   update(slide);
 }}
 function update(num) {
-  if (num == 1) {document.getElementById("pres1").innerHTML = "<center><h1 class='center'>What is Climate?</h1></center><center><h3 class='center'>Climate is the average weather over long periods of time. It is a bunch of data about meteorological conditions. </h3></center><center><h1 class='center'>What is Weather?</h1></center><center><h3 class='center'>Weather is the current atmospheric conditions. Unlike climate, weather is not over a long period of time, there's no time frame, it's just the measured conditions of present times.</h3></center>"}
+  if(num == 0) {}
+  else if (num == 1) {document.getElementById("pres1").innerHTML = "<center><h1 class='center'>What is Climate?</h1></center><center><h3 class='center'>Climate is the average weather over long periods of time. It is a bunch of data about meteorological conditions. </h3></center><center><h1 class='center'>What is Weather?</h1></center><center><h3 class='center'>Weather is the current atmospheric conditions. Unlike climate, weather is not over a long period of time, there's no time frame, it's just the measured conditions of present times.</h3></center>"}
   else if (num == 2) {document.getElementById("pres1").innerHTML = ""}
   else {document.getElementById("pres1").innerHTML = "";}
 }
