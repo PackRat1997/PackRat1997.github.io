@@ -10,7 +10,25 @@ body {
 	color: darkslategrey;
 
 }
+.schoolwork_link {
+	font-size: 140%;
+	text-decoration:none;
+}
+.schoolwork_link:hover {
+	color: black;
 
+}
+button.back {
+	margin: 0px auto;
+	background-color: #4CAF50;
+	font-family: 'Gloria Hallelujah', cursive;
+	color: white;
+	border-radius: 2px;
+	border-width: 0px;
+}
+button.back:hover {
+	cursor: pointer;
+}
 h1 {
 	font-family: 'Gloria Hallelujah', cursive;
 	font-size: 300%;
