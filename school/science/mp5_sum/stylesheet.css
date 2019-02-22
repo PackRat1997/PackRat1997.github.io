@@ -19,7 +19,10 @@ button:hover {
   color:black;
 }
 .slides {
-  color: white;;
+  color: white;
+}
+.presLink {
+  color: blue;
 }
 h3,h1 {
     background-color: rgba(0,27,255,0.35);
@@ -38,7 +41,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-  font-size:135%;
+  font-size:110%;
   color: White;
 	font-family: 'Gloria Hallelujah', cursive;
 }
