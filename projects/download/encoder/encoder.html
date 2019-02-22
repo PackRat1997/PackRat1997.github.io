@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Encryption</title>
+        <style>
+            body, html{
+                height: 100%;
+            }
+            body{
+                font-family:cursive;
+                color: maroon;
+                background-color: darkslategrey;
+            }
+            .textArea{
+                background-color: slategrey;
+                color: maroon;
+                font-family: cursive;
+                width: 80%;
+                height: 40%;
+            }
+            .button {
+                border-radius: 8px;
+                background-color: slategrey;
+                border-color: maroon;
+                color: maroon;
+                font-size: 125%;
+            }
+            .button:hover{
+                cursor: pointer;
+            }
+            .output {
+                border-color: maroon;
+                border-width: 2px;
+                border-radius: 3px;
+                background-color: slategrey;
+                color: maroon;
+                font-family: cursive;
+                font-size: 100%;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+
+            }
+            #channelID {
+                background-color: slategrey;
+                border-radius: maroon;
+                color: maroon;
+                font-family: cursive;
+                font-size: 115%;
+            }
+        </style>
+    </head>
+    <body onload="onload1()">
+        <button onclick="clearPage();" class="button" id="clearButton">Clear Form</button>
+        <input maxlength="4" value="" onkeypress="return event.charCode >= 48 && event.charCode <= 57;" onkeyup="channelIDfunc()" type="text" id="channelID"/>
+        <button class="button" id="checkIDbutton" onclick="if(localStorage.channelID == '0000'){alert('Channel ID: 0000 (default)');}else{alert('Channel ID: '+localStorage.channelID);}">Check Channel Number</button>
+        <h1>Encrypt Messages:</h1>
+        <textarea id="encryptionInput" class="textArea"></textarea>
+        <br>
+        <button id="submit" class="button" onclick="submitEncrypt()">Submit</button>
+        <p id="encryptOutput" class="output"></p>
+        <h1>Decrypt Messages:</h1>
+        <textarea id="decryptionInput" class="textArea"></textarea>
+        <br>
+        <button id="submit" class="button" onclick="submitDecrypt()">Submit</button>
+        <p id="decryptOutput" class="output"></p>
+        <script>
+            var EL;
+var DL;
+var en;
+var de;
+var x;
+var ne;
+var channelID;
+function onload1() {
+    if(localStorage.channelID) {
+        document.getElementById("channelID").innerHTML = "ChannelID ";
+        console.log("chanel id loaded");
+        document.getElementById("channelID").value = localStorage.channelID;
+    }
+    else {
+        localStorage.channelID = "0000";
+        document.getElementById("clearButton").setAttribute("value", "0000");
+    }
+    channelID = parseInt(localStorage.channelID);
+}
+function channelIDfunc() {
+
+    if(document.getElementById("channelID").value.length == 4) {
+        localStorage.channelID = document.getElementById("channelID").value;
+        channelID = parseInt(localStorage.channelID);
+    }
+
+}
+function clearPage() {
+    console.log("attempt made to clear");
+    EL = "";
+    DL = "";
+    en = "";
+    de = "";
+    x = 0;
+    ne = "";
+    encryptionInput = "";
+    document.getElementById("encryptOutput").innerHTML = "";
+    document.getElementById("decryptOutput").innerHTML = "";
+    document.getElementById('encryptionInput').value = "";
+    document.getElementById('decryptionInput').value = "";
+    console.clear();
+}
+function submitEncrypt() {
+
+    var encryptionInput = document.getElementById('encryptionInput').value.replace(".o","");
+    document.getElementById("encryptOutput").innerHTML = "";
+    for (var i = 0; i < encryptionInput.length; i++) {
+        EL = encryptionInput.charAt(i);
+        console.log(i+": "+EL + " - "+numValue(EL));
+        console.log(Math.pow((numValue(EL)), 3)+1273628459+i+channelID);
+        if(valNumber((Math.cbrt((Math.pow((numValue(EL)), 3)+1273628459+channelID+i-1273628459-i-channelID)))) == undefined) {console.warn("Error Caught");}
+        else {
+        en = (Math.pow((numValue(EL)), 3)+1273628459+i+channelID).toString();
+        en = en.replace(/1/g,"q");
+        en = en.replace(/2/g,"w");
+        en = en.replace(/3/g,"g");
+        en = en.replace(/4/g,"h");
+        en = en.replace(/5/g,"b");
+        en = en.replace(/6/g,"x");
+        en = en.replace(/7/g,"t");
+        en = en.replace(/8/g,"n");
+        en = en.replace(/9/g,"y");
+        en = en.replace(/0/g,"u");
+        document.getElementById("encryptOutput").innerHTML += en;}
+    }
+    document.getElementById('encryptOutput').innerHTML += ".o";
+}
+function submitDecrypt() {
+    document.getElementById("decryptOutput").innerHTML = "";
+    x = 0;
+        document.getElementById('decryptionInput').value = document.getElementById('decryptionInput').value.replace(".o","")
+        decryptionInput = document.getElementById('decryptionInput').value;
+
+
+    for (var i = 0; i < decryptionInput.length/10; i++) {
+
+        de = decryptionInput.slice(x, x+10);
+
+        de = de.replace(/u/g,"0");
+        de = de.replace(/y/g,"9");
+        de = de.replace(/n/g,"8");
+        de = de.replace(/t/g,"7");
+        de = de.replace(/x/g,"6");
+        de = de.replace(/b/g,"5");
+        de = de.replace(/h/g,"4");
+        de = de.replace(/g/g,"3");
+        de = de.replace(/w/g,"2");
+        de = de.replace(/q/g,"1");
+        console.log(de);
+        de = parseInt(de);
+        console.log(de);
+
+        console.log((Math.cbrt((parseInt(de)-1273628459-i-channelID))));
+        if(valNumber((Math.cbrt((parseInt(de)-1273628459-i-channelID)))) == undefined){
+            console.error("undefined character, code: "+(Math.cbrt((parseInt(de)-1273628459-i))));
+        }
+
+        else{console.log(valNumber((Math.cbrt((parseInt(de)-1273628459-i-channelID)))));}
+       document.getElementById("decryptOutput").innerHTML += valNumber((Math.cbrt((parseInt(de)-1273628459-i-channelID))));
+        x += 10 ;
+    }
+}
+function numValue(num) {
+    if(num == "a") {return 1;}
+    else if (num == "A") {return 2;}
+    else if (num == "b") {return 3;}
+    else if (num == "B") {return 4;}
+    else if (num == "c") {return 5;}
+    else if (num == "C") {return 6;}
+    else if (num == "d") {return 7;}
+    else if (num == "D") {return 8;}
+    else if (num == "e") {return 9;}
+    else if (num == "E") {return 10;}
+    else if (num == "f") {return 11;}
+    else if (num == "F") {return 12;}
+    else if (num == "g") {return 13;}
+    else if (num == "G") {return 14;}
+    else if (num == "h") {return 15;}
+    else if (num == "H") {return 16;}
+    else if (num == "i") {return 17;}
+    else if (num == "I") {return 18;}
+    else if (num == "j") {return 19;}
+    else if (num == "J") {return 20;}
+    else if (num == "k") {return 21;}
+    else if (num == "K") {return 22;}
+    else if (num == "l") {return 23;}
+    else if (num == "L") {return 24;}
+    else if (num == "m") {return 25;}
+    else if (num == "M") {return 26;}
+    else if (num == "n") {return 27;}
+    else if (num == "N") {return 28;}
+    else if (num == "o") {return 29;}
+    else if (num == "O") {return 30;}
+    else if (num == "p") {return 31;}
+    else if (num == "P") {return 32;}
+    else if (num == "q") {return 33;}
+    else if (num == "Q") {return 34;}
+    else if (num == "r") {return 35;}
+    else if (num == "R") {return 36;}
+    else if (num == "s") {return 37;}
+    else if (num == "S") {return 38;}
+    else if (num == "t") {return 39;}
+    else if (num == "T") {return 40;}
+    else if (num == "u") {return 41;}
+    else if (num == "U") {return 42;}
+    else if (num == "v") {return 43;}
+    else if (num == "V") {return 44;}
+    else if (num == "w") {return 45;}
+    else if (num == "W") {return 46;}
+    else if (num == "x") {return 47;}
+    else if (num == "X") {return 48;}
+    else if (num == "y") {return 49;}
+    else if (num == "Y") {return 50;}
+    else if (num == "z") {return 51;}
+    else if (num == "Z") {return 52;}
+    else if (num == "~") {return 53;}
+    else if (num == "`") {return 54;}
+    else if (num == "!") {return 55;}
+    else if (num == "@") {return 56;}
+    else if (num == "#") {return 57;}
+    else if (num == "$") {return 58;}
+    else if (num == "%") {return 59;}
+    else if (num == "^") {return 60;}
+    else if (num == "&") {return 61;}
+    else if (num == "*") {return 62;}
+    else if (num == "(") {return 63;}
+    else if (num == ")") {return 64;}
+    else if (num == "_") {return 65;}
+    else if (num == "-") {return 66;}
+    else if (num == "+") {return 67;}
+    else if (num == "=") {return 68;}
+    else if (num == "{") {return 69;}
+    else if (num == "[") {return 70;}
+    else if (num == "}") {return 71;}
+    else if (num == "]") {return 72;}
+    else if (num == "|") {return 73;}
+    else if (num == "\\"){return 74;}
+    else if (num == ":") {return 75;}
+    else if (num == ";") {return 76;}
+    else if (num == '"') {return 77;}
+    else if (num == "'") {return 78;}
+    else if (num == "<") {return 79;}
+    else if (num == ",") {return 80;}
+    else if (num == ">") {return 81;}
+    else if (num == "/") {return 82;}
+    else if (num == "?") {return 83;}
+    else if (num == " ") {return 84;}
+    else if (num == ".") {return 85;}
+    else if (num == "1") {return 86;}
+    else if (num == "2") {return 87;}
+    else if (num == "3") {return 88;}
+    else if (num == "4") {return 89;}
+    else if (num == "5") {return 90;}
+    else if (num == "6") {return 91;}
+    else if (num == "7") {return 92;}
+    else if (num == "8") {return 93;}
+    else if (num == "9") {return 94;}
+    else if (num == "0") {return 95;}
+
+
+}
+function valNumber(val) {
+    if(val == 1) {return "a";}
+    else if (val == 2) {return "A";}
+    else if (val == 3) {return "b";}
+    else if (val == 4) {return "B";}
+    else if (val == 5) {return "c";}
+    else if (val == 6) {return "C";}
+    else if (val == 7) {return "d";}
+    else if (val == 8) {return "D";}
+    else if (val == 9) {return "e";}
+    else if (val == 10) {return "E";}
+    else if (val == 11) {return "f";}
+    else if (val == 12) {return "F";}
+    else if (val == 13) {return "g";}
+    else if (val == 14) {return "G";}
+    else if (val == 15) {return "h";}
+    else if (val == 16) {return "H";}
+    else if (val == 17) {return "i";}
+    else if (val == 18) {return "I";}
+    else if (val == 19) {return "j";}
+    else if (val == 20) {return "J";}
+    else if (val == 21) {return "k";}
+    else if (val == 22) {return "K";}
+    else if (val == 23) {return "l";}
+    else if (val == 24) {return "L";}
+    else if (val == 25) {return "m";}
+    else if (val == 26) {return "M";}
+    else if (val == 27) {return "n";}
+    else if (val == 28) {return "N";}
+    else if (val == 29) {return "o";}
+    else if (val == 30) {return "O";}
+    else if (val == 31) {return "p";}
+    else if (val == 32) {return "P";}
+    else if (val == 33) {return "q";}
+    else if (val == 34) {return "Q";}
+    else if (val == 35) {return "r";}
+    else if (val == 36) {return "R";}
+    else if (val == 37) {return "s";}
+    else if (val == 38) {return "S";}
+    else if (val == 39) {return "t";}
+    else if (val == 40) {return "T";}
+    else if (val == 41) {return "u";}
+    else if (val == 42) {return "U";}
+    else if (val == 43) {return "v";}
+    else if (val == 44) {return "V";}
+    else if (val == 45) {return "w";}
+    else if (val == 46) {return "W";}
+    else if (val == 47) {return "x";}
+    else if (val == 48) {return "X";}
+    else if (val == 49) {return "y";}
+    else if (val == 50) {return "Y";}
+    else if (val == 51) {return "z";}
+    else if (val == 52) {return "Z";}
+    else if (val == 53) {return "~";}
+    else if (val == 54) {return "`";}
+    else if (val == 55) {return "!";}
+    else if (val == 56) {return "@";}
+    else if (val == 57) {return "#";}
+    else if (val == 58) {return "$";}
+    else if (val == 59) {return "%";}
+    else if (val == 60) {return "^";}
+    else if (val == 61) {return "&";}
+    else if (val == 62) {return "*";}
+    else if (val == 63) {return "(";}
+    else if (val == 64) {return ")";}
+    else if (val == 65) {return "_";}
+    else if (val == 66) {return "-";}
+    else if (val == 67) {return "+";}
+    else if (val == 68) {return "=";}
+    else if (val == 69) {return "{";}
+    else if (val == 70) {return "[";}
+    else if (val == 71) {return "}";}
+    else if (val == 72) {return "]";}
+    else if (val == 73) {return "|";}
+    else if (val == 74){return "\\";}
+    else if (val == 75) {return ":";}
+    else if (val == 76) {return ";";}
+    else if (val == 77) {return '"';}
+    else if (val == 78) {return "'";}
+    else if (val == 79) {return "<";}
+    else if (val == 80) {return ",";}
+    else if (val == 81) {return ">";}
+    else if (val == 82) {return "/";}
+    else if (val == 83) {return "?";}
+    else if (val == 84) {return " ";}
+    else if (val == 85) {return ".";}
+    else if (val == 86) {return "1";}
+    else if (val == 87) {return "2";}
+    else if (val == 88) {return "3";}
+    else if (val == 89) {return "4";}
+    else if (val == 90) {return "5";}
+    else if (val == 91) {return "6";}
+    else if (val == 92) {return "7";}
+    else if (val == 93) {return "8";}
+    else if (val == 94) {return "9";}
+    else if (val == 95) {return "0";}
+
+}
+
+        </script>
+        <br/>
+        <br/>
+        <br/>
+    </body>
+</html>
