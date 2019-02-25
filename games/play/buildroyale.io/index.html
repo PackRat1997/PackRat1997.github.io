@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Game Center</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../CSS/template.css">
+    <link rel="icon" href="../../../assets/icon.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../../../assets/icon.png" type="image/x-icon"/>
+
+    <div class="topnav">
+      <a href="../../../">Home</a>
+      <a href="../../../school">School Work</a>
+      <a href="../../../projects">Projects</a>
+      <a class="active"href="../../../games">Games</a>
+    </div>
+  </head>
+  <body onload="onload()">
+    <label id="togS" class="switch">
+      <input type="checkbox" id="toggle" onclick="toggle()">
+      <span class="slider round"></span>
+    </label>
+    <script type="text/javascript">
+
+      function onload() {
+        if(localStorage.checkbox == "checked") {
+          document.title="Google";
+          document.querySelector("link[rel='shortcut icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";
+          document.querySelector("link[rel*='icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";
+          document.getElementById("toggle").checked = true;
+        }
+
+      }
+      function toggle() {
+      var checkBox = document.getElementById("toggle");
+      var text = document.getElementById("text");
+      if(checkBox.checked == true){
+        localStorage.checkbox = "checked";
+        document.title="Google";
+        document.querySelector("link[rel='shortcut icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";
+        document.querySelector("link[rel*='icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";
+      }
+      else{
+        localStorage.checkbox = "unchecked";
+        document.title="Game Center";
+        document.querySelector("link[rel='shortcut icon']").href="../../../../../assets/icon.png";
+        document.querySelector("link[rel*='icon']").href = "../../../../../assets/icon.png";}
+      }
+    </script><br>
+    <style>
+      body,html {
+        height: 100%;
+      }
+    </style>
+    <iframe src="https://buildroyale.io" width="90%" height="80%"></iframe>
+
+  </body>
+</html>

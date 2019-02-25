@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Game Center</title>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/template.css">
+    <link rel="icon" href="../assets/icon.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../assets/icon.png" type="image/x-icon"/>
+
+    <div class="topnav">
+      <a href="../">Home</a>
+      <a href="../school">School Work</a>
+      <a href="../projects">Projects</a>
+      <a class="active"href="../games">Games</a>
+    </div>
+  </head>
+  <body onload="onload()">
+    <label id="togS" class="switch">
+      <input type="checkbox" id="toggle" onclick="toggle()">
+      <span class="slider round"></span>
+    </label>
+    <script type="text/javascript">
+
+      function onload() {
+        if(localStorage.checkbox == "checked") {
+          document.title="Google";
+          document.querySelector("link[rel='shortcut icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";
+          document.querySelector("link[rel*='icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";
+          document.getElementById("toggle").checked = true;
+        }
+
+      }
+      function toggle() {
+      var checkBox = document.getElementById("toggle");
+      var text = document.getElementById("text");
+      if(checkBox.checked == true){
+        localStorage.checkbox = "checked";
+        document.title="Google";
+        document.querySelector("link[rel='shortcut icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";
+        document.querySelector("link[rel*='icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";
+      }
+      else{
+        localStorage.checkbox = "unchecked";
+        document.title="Game Center";
+        document.querySelector("link[rel='shortcut icon']").href="../../../../../assets/icon.png";
+        document.querySelector("link[rel*='icon']").href = "../../../../../assets/icon.png";}
+      }
+    </script>
+
+    <div class="skinny">
+      <h1>Games</h1>
+
+      <!-- B -->
+      <h2 class="skinny2">B</h2>
+      <h5><a href="play/buildroyale.io">BuildRoyale.io</a> | <a href="https://buildroyale.io" target="battle_royale_io">Play Online</a></h5>
+
+      <!-- O -->
+
+      <h2 class="skinny2">O</h2>
+      <h5><a href="play/oceanar.io">Oceanar.io</a> | <a href="https://oceanar.io" target="oceanar_io">Play Online</a></h5>
+
+      <!-- S -->
+      <h2 class="skinny2">S</h2>
+
+      <h5><a href="play/starblast.io">Starblast.io</a> | <a href="https://starblast.io" target="starblast_io">Play Online</a></h5>
+
+      <!-- Z -->
+
+      <h2 class="skinny2">Z</h2>
+      <h5><a href="play/zombsroyale.io">ZombsRoyale.io</a> | <a href="https://zombsroyale.io" target="zombsroyale_io">Play Online</a></h5>
+      <h5><a href="play/zombs.io">Zombs.io</a> | <a href="https://zombs.io" target="zombs_io">Play Online</a></h5>
+      </div>
+  </body>
+</html>

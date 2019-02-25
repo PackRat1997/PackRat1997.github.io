@@ -10,6 +10,12 @@ body {
 	color: darkslategrey;
 
 }
+.skinny {
+	line-height: 0.5;
+}
+.skinny2 {
+	line-height: 0.1;
+}
 .schoolwork_link {
 	font-size: 140%;
 	text-decoration:none;
