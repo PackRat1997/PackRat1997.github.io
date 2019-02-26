@@ -4,12 +4,9 @@ function onload() {
     document.querySelector("link[rel='shortcut icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";
     document.querySelector("link[rel*='icon']").href = "https://www.google.com/images/branding/product/ico/googleg_lodp.ico";
     document.getElementById("toggle").checked = true;
-    window.setInterval(function(){
-      checkOffline();
-      console.log("hit");
-    }, 5000);
-  }
 
+  }
+  var x = setInterval(checkOffline, 5000);
   if(localStorage.lineStatusRW == "offline") {
     document.getElementById("lineStatus").style.color = "red";
     document.getElementById("lineStatus").innerHTML = "Offline";
